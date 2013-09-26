@@ -1,7 +1,7 @@
 
 import java.util.Arrays;
 
-public final class Board {
+public class Board {
     
     private int N;
     private int[] blocks;

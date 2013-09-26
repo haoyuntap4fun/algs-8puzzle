@@ -1,7 +1,7 @@
 
 import java.util.Comparator;
 
-public final class Solver {
+public class Solver {
     
     private SearchNode goal;
     
@@ -88,6 +88,7 @@ public final class Solver {
 
     // sequence of boards in a shortest solution; null if no solution
     public Iterable<Board> solution() {
+        if (!isSolvable())  return null;
         Stack<Board> bStack = new Stack<Board>();
         for (SearchNode s = goal; s != null; s = s.preNode)
             bStack.push(s.board);
