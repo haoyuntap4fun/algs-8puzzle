@@ -36,8 +36,7 @@ public class Solver {
         while (!minNode.board.isGoal() && !twinMinNode.board.isGoal()) {
             for (Board b : minNode.board.neighbors()) {
                 if ((minNode.preNode == null)
-                        || (minNode.preNode != null
-                            && !b.equals(minNode.preNode.board))) {
+                        || !b.equals(minNode.preNode.board)) {
                     SearchNode node = new SearchNode(b);
                     node.moves = minNode.moves + 1;
                     node.preNode = minNode;
@@ -46,8 +45,7 @@ public class Solver {
             }
             for (Board b : twinMinNode.board.neighbors()) {
                 if ((minNode.preNode == null)
-                        || (minNode.preNode != null
-                            && !b.equals(twinMinNode.preNode.board))) {
+                        || !b.equals(twinMinNode.preNode.board)) {
                     SearchNode node = new SearchNode(b);
                     node.moves = twinMinNode.moves + 1;
                     node.preNode = twinMinNode;
