@@ -39,13 +39,15 @@ public class Board {
 
     // sum of Manhattan distances between blocks and goal
     public int manhattan() {
-        int s, sum;
+        int sum;
+        int row, col;
 
         sum = 0;
         for (int i = 0; i < blocks.length; i++) {
             if (blocks[i] != 0 && blocks[i] != i+1) {
-                s = Math.abs(i - blocks[i] + 1);
-                sum += (s % N + s / N);
+                col = Math.abs(i % N - (blocks[i]-1) % N);
+                row = Math.abs(i / N - (blocks[i]-1) / N);
+                sum += (row + col);
             }
         }
         return sum;
@@ -92,7 +94,7 @@ public class Board {
         a[i] = temp;
     }
 
-    // all neighboring blockss
+    // all neighboring blocks
     public Iterable<Board> neighbors() {
         int i;
         Board neiBoard;
